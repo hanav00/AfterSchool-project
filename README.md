@@ -1,4 +1,4 @@
-<h1>:cherry_blossom:Creating a Bulletin Board Application with the Spring Framework</h1>
+<h1>:cherry_blossom:Creating a Bulletin Board Application with the Spring Boot</h1>
 
 <hr>
 <span>
@@ -16,6 +16,8 @@
 
 :calendar: 2023.05.30 ~ 06.20<br>
 :raising_hand: Team Project<br>
+:flushed: My role was.. <br>
 
 
 <hr>
+
