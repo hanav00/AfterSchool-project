@@ -96,5 +96,33 @@
 마감일 이틀 전부터는 모든 작업물을 하나의 합본으로 만들어 진행하였다. 이 단계에서는 각 팀원들이 담당한 부분을 개별적으로 작업하고, 자신의 코드에서 변경된 부분을 업로드하여 제가 확인한 후 합본에 추가하는 방식을 채택하였다. 이를 통해 팀원들 간의 작업 혼선을 최소화하고, 전체적인 프로젝트의 통합을 원활하게 진행할 수 있었다.
 
 
+
 <h2>Step 6: CSS 수정</h2>
-CSS는 잘하는 팀원이 80% 도맡아서 하였다..ㅎㅎ 페이지 UI가 비슷한 부분은 그 팀원이 짠 코드에서 복사해와서 동일하게 css를 적용시켰다.
+CSS 작업은 팀원 중에서 CSS에 능숙한 멤버가 주로 맡아서 진행하였다. 해당 팀원은 전체 작업의 80% 정도를 담당하였다. 그 중에서 페이지 UI가 비슷한 부분은 해당 팀원이 작성한 코드를 참고하여 동일한 CSS를 적용시켰다.
+
+이렇게 비슷한 UI를 가진 여러 페이지에서 코드를 복사해와서 재활용하는 방식을 택했다. 이를 통해 일관된 디자인과 스타일을 유지하며 작업을 효율적으로 진행할 수 있었다. 또한, 해당 팀원이 작성한 CSS 코드를 참고하므로써 일관성을 유지하고 중복 작업을 최소화할 수 있었다.
+
+
+
+<h2>Step 7: 접근 권한 테스트</h2>
+프로젝트에서는 로그인과 로그아웃을 포함한 접근 권한 관리를 위해 주로 Spring Security를 활용하였다. Spring Security는 강력한 보안 기능을 제공하여 웹 애플리케이션의 인증과 권한 부여를 쉽게 구현할 수 있도록 도와준다.
+
+Spring Security를 활용하여 사용자의 로그인과 로그아웃을 처리하고, 접근 권한을 관리하는 기능을 구현했다. 로그인 시 사용자의 인증을 처리하여 세션에 인증 정보를 저장하고, 로그아웃 시에는 해당 세션 정보를 제거하였다. 또한, Spring Security의 설정을 통해 접근 권한이 필요한 페이지에 대한 인가 처리를 수행하여, 권한이 없는 사용자의 접근을 차단하였다.
+
+```java
+		//접근권한 설정(권한 부여 : Authorization)
+		http
+		.authorizeHttpRequests()
+		.requestMatchers("/freeboard/**").hasAnyAuthority("STUDENT","MANAGER")
+		.requestMatchers("/noticeboard/**").hasAnyAuthority("STUDENT","TEACHER","MANAGER")
+		.requestMatchers("/manager/**").hasAnyAuthority("MANAGER")
+		.requestMatchers("/student/**").hasAnyAuthority("STUDENT")
+		.requestMatchers("/teacher/**").hasAnyAuthority("TEACHER")
+		.requestMatchers("/**").permitAll()
+		.anyRequest().authenticated();
+```
+
+
+<h2>Step 8: 배포하기</h2>
+마찬가지로 가상 도메인을 설정하여 배포를 하였다.
+
