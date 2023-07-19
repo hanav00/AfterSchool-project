@@ -1,4 +1,4 @@
-<h1>:cherry_blossom:Creating a Bulletin Board Application with the Spring Boot</h1>
+<h1>:cherry_blossom: 스프링 부트 기반 온라인 교육 사이트 구축</h1>
 
 <hr>
 <span>
@@ -15,8 +15,8 @@
 </span>
 
 :calendar: 2023.05.30 ~ 06.20<br>
-:raising_hand: Team Project<br>
-:flushed: My role was.. PM + Front + DB설계 <br>
+:raising_hand: 팀 프로젝트 (5명)<br>
+:flushed: 역할은.. PM + Front + DB설계 <br>
 
 
 <hr>
